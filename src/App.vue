@@ -44,7 +44,7 @@ import Main from './components/Main.vue'
 </script>
 
 <template>
-  <Header />
+  <Header @startSearch="getApi" />
   <Main />
 </template>
 

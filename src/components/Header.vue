@@ -3,7 +3,21 @@ import {store} from '../data/store'
   export default {
     data(){
       return{
-        store
+        store,
+        nameToSearch:''
+      }
+    },
+
+    methods:{
+      startSearch(){
+        console.log('ricerca');
+        this.store.queryParams = {
+          num: 20,
+          offset: 0,
+          language:'en',
+          name: this.nameToSearch
+        }
+        this.$emit('startSearch')
       }
     }
 
@@ -14,8 +28,15 @@ import {store} from '../data/store'
 <template>
   <div class="container text-center my-5">
     <h1>{{ store.mainTitle }}</h1>
-    <!-- <label for="exampleDataList" class="form-label">Datalist example</label> -->
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+
+    <input 
+    class="form-control" 
+    list="datalistOptions" 
+    id="exampleDataList" 
+    placeholder="Type to search..."
+    v-model.trim="nameToSearch"
+    @keyup.enter="startSearch"
+    >
     <datalist id="datalistOptions">
       <option
       v-for="(nome,index) in this.store.nameList"
