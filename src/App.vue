@@ -17,11 +17,7 @@ import Main from './components/Main.vue'
     methods:{
       getApi(){
         axios.get(this.store.apiUrl, {
-          params:{
-            num: 20,
-            offset: 0,
-            language: 'en',
-          }
+          params:store.queryParams
         })
         .then(result => {
           this.store.cardList = result.data.results
@@ -30,10 +26,19 @@ import Main from './components/Main.vue'
         .catch(error => {
           console.log(error);
         })
+      },
+      getAllnames(){
+        axios.get(this.store.nameUrl)
+        .then(result => {
+          console.log(result.data.results);
+          this.store.nameList = result.data.results.map(item => item.name);
+          console.log(this.store.nameList);
+        })
       }
     },
     mounted(){
-      this.getApi()
+      this.getApi(),
+      this.getAllnames()
     }
   }
 </script>

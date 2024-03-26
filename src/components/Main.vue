@@ -16,8 +16,7 @@ import {store} from '../data/store'
 
 <template>
   <div class="text-center my-5 container">
-    <input class="form-control" type="text" v-model="store.mainTitle">
-
+    
     <div class="row row-cols-4 mt-4">
       <Card
         v-for="card in this.store.cardList"
