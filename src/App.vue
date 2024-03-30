@@ -34,11 +34,13 @@ import Main from './components/Main.vue'
           this.store.nameList = result.data.results.map(item => item.name);
           console.log(this.store.nameList);
         })
-      }
+      },
     },
     mounted(){
       this.getApi(),
-      this.getAllnames()
+      this.getAllnames(),
+      this.getAllstatus(),
+      this.getAllspecies()
     }
   }
 </script>
@@ -50,6 +52,6 @@ import Main from './components/Main.vue'
 
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use './assets/scss/main.scss';
 </style>

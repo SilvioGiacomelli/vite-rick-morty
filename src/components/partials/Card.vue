@@ -17,7 +17,7 @@
       :alt="name">
       <div class="card-body">
         <h5 class="card-title">{{ name }}</h5>
-        <p class="card-text">{{status}}</p>
+        <p class="card-text">{{ status }}</p>
         <p class="card-text">{{ species }}</p>
       </div>
     </div>
