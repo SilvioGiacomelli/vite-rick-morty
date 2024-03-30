@@ -20,6 +20,12 @@ import {store} from '../data/store'
         }
         this.$emit('startSearch')
       },
+      resetRicerca(){
+        this.nameToSearch = '';
+        this.statusToSearch = '';
+        this.speciesToSearch = '';
+        this.startSearch();
+      }
     }
 
   }
@@ -35,44 +41,59 @@ import {store} from '../data/store'
 
   <div class="container">
     <div class="row">
-      <input 
-        class="form-control col" 
+      <div class="col">
+
+        <input 
+        class="form-control" 
         list="datalistOptions" 
         id="exampleDataList" 
         placeholder="Type to search..." 
         v-model.trim="nameToSearch"
         @keyup.enter="startSearch"
-      >
-      <datalist id="datalistOptions">
-        <option 
+        >
+        <datalist id="datalistOptions">
+          <option 
           v-for="(nome, index) in this.store.nameList" 
           :key="index" 
           :value="nome">
         </option>
-      </datalist>
-     
-      <select 
-      v-model="statusToSearch" 
-      @change="startSearch" 
-      class="form-select mx-3 w-25">
-        <option value="" disabled selected>Select status</option>
-        <option value="Alive">Alive</option>
-        <option value="Dead">Dead</option>
-        <option value="Unknown">Unknown</option>
-      </select>
-
-      <select 
-      v-model="speciesToSearch" 
-      @change="startSearch" 
-      class="form-select mx-3 w-25">
-        <option value= "" disabled selected>Select species</option>
-        <option value="Human">Human</option>
-        <option value="Alien">Alien</option>
-        <option value="Unknown">Unknown</option>
-      </select>
-
+        </datalist>
       </div>
+      
+      <div class="col">
+        <select 
+        v-model="statusToSearch" 
+        @change="startSearch" 
+        class="form-select">
+          <option value="" disabled selected>Select status</option>
+          <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+
+
+      <div class="col">
+        <select 
+        v-model="speciesToSearch" 
+        @change="startSearch" 
+        class="form-select">
+          <option value= "" disabled selected>Select species</option>
+          <option value="Human">Human</option>
+          <option value="Alien">Alien</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <button 
+        @click="resetRicerca" 
+        class="btn btn-danger">Reset
+        </button>
+      </div>
+
     </div>
+  </div>
 </template>
 
 
