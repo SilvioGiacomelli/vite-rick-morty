@@ -51,12 +51,23 @@ import {store} from '../data/store'
         </option>
       </datalist>
      
-      <select v-model="statusToSearch" 
+      <select 
+      v-model="statusToSearch" 
       @change="startSearch" 
       class="form-select mx-3 w-25">
         <option selected>Select status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
+        <option value="Unknown">Unknown</option>
+      </select>
+
+      <select 
+      v-model="speciesToSearch" 
+      @change="startSearch" 
+      class="form-select mx-3 w-25">
+        <option selected>Select status</option>
+        <option value="Human">Human</option>
+        <option value="Alien">Alien</option>
         <option value="Unknown">Unknown</option>
       </select>
 
