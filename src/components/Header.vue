@@ -40,7 +40,7 @@ import {store} from '../data/store'
         list="datalistOptions" 
         id="exampleDataList" 
         placeholder="Type to search..." 
-        v-model.trim="nameToSearch" 
+        v-model.trim="nameToSearch"
         @keyup.enter="startSearch"
       >
       <datalist id="datalistOptions">
@@ -55,7 +55,7 @@ import {store} from '../data/store'
       v-model="statusToSearch" 
       @change="startSearch" 
       class="form-select mx-3 w-25">
-        <option selected>Select status</option>
+        <option value="" disabled selected>Select status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="Unknown">Unknown</option>
@@ -65,7 +65,7 @@ import {store} from '../data/store'
       v-model="speciesToSearch" 
       @change="startSearch" 
       class="form-select mx-3 w-25">
-        <option selected>Select status</option>
+        <option value= "" disabled selected>Select species</option>
         <option value="Human">Human</option>
         <option value="Alien">Alien</option>
         <option value="Unknown">Unknown</option>
